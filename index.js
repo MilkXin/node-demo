@@ -110,11 +110,16 @@ const fileName = path.resolve(__dirname, 'data.txt')
 }) */
 
 //写入文件
-const content = '新写入内容\n'
+/* const content = '新写入内容\n'
 const opt = {
     flag: 'a'   //'a'追加写入, 'w'覆盖
 }
 fs.writeFile(fileName, content, opt, (err) => {
     console.error(err)
+}) */
+
+//判断文件是否存在
+fs.exists(fileName, (exist) => {
+    console.log('exist:', exist)
 })
 
