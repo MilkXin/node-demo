@@ -70,7 +70,7 @@ con.query(sql, (err, result) => {
 
 
 
-const redis = require('redis')
+/* const redis = require('redis')
 
 //创建客户端
 const redisClient = redis.createClient(6379, '127.0.0.1')
@@ -89,5 +89,23 @@ redisClient.get('myname', (err, val) => {
 
     //退出
     redisClient.quit()
+}) */
+
+
+
+const fs = require('fs')
+const path = require('path')
+
+const fileName = path.resolve(__dirname, 'data.txt')
+
+//读取文件内容
+fs.readFile(fileName, (err, data) => {
+    if (err) {
+        console.error(err)
+        return
+    }
+
+    //data是二进制类型，需要转换为字符串
+    console.log(data.toString())
 })
 
