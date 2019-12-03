@@ -142,6 +142,10 @@ const writeStream = fs.createWriteStream(fileName2)
 
 readStream.pipe(writeStream)
 
+//监听读取的中间过程，data为每次读取的流内容
+readStream.on('data', chunk => {
+    console.log(chunk.toString())
+})
 readStream.on('end', () => {
     console.log('copy done')
 })
